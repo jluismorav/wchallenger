@@ -49,29 +49,49 @@ usuario que realizó dicho comentario.
 http://localhost:8080/
 
 GET /albums
+
 GET /albums/
+
 GET /albums/{id}
+
 GET /albums?userId=#{userId}
 
+
 GET /comments
+
 GET /comments/
+
 GET /comments/{id}
+
 GET /comments?postId={postId}
+
 GET /comments?name={name}
 
+
 GET  /permissions
+
 POST /permissions
+
 PUT  /permissions/{id}
+
 GET  /permissions?albumId={albumId}
 
+
 GET /photos
+
 GET /photos/
+
 GET /photos/{id}
+
 GET /users/{userId}/photos
+
 GET /photos?albumId={albumId}
 
+
 GET /users/
+
 GET /users/{id}
+
 
 
 #Tecnologías
@@ -83,5 +103,7 @@ Se puede validar los servicios rest ya sea por un cliente rest o ingresando en l
 
 Sobre el path del respositorio
 
+
 $ mvn install
+
 $ java -jar target/wchallenger-0.0.1-SNAPSHOT.jar 
