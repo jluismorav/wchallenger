@@ -17,10 +17,8 @@ import com.jmora.wchallenger.domain.User;
 import com.jmora.wchallenger.services.PermissionService;
 
 @RestController
-
 public class PermissionServiceController {
 	protected static final String PATH = "/permissions";
-	private static final String HTTPS_JSONPLACEHOLDER_TYPICODE_COM = "https://jsonplaceholder.typicode.com";
 	@Autowired
 	private PermissionService permissionService;
 	@Autowired
@@ -35,26 +33,14 @@ public class PermissionServiceController {
 		return permissionService.retrieve();
 	}
 
-	/**
-	 * Registrar un álbum compartido con un usuario y sus permisos.
-	 * 
-	 * @param permission
-	 * @return
-	 */
 	@PostMapping(PATH)
 	public Permission save(Permission permission) {
 		permissionService.save(permission);
 		return permission;
 	}
 
-	/**
-	 * Cambiar los permisos de un usuario para un álbum determinado
-	 * 
-	 * @param permission
-	 * @param id
-	 * @return
-	 */
 	@PutMapping(PATH + "/{id}")
+
 	public Permission update(@RequestBody Permission permission, @PathVariable(name = "id") Long id) {
 		Permission permissionFound = permissionService.get(id);
 		if (permissionFound != null) {
@@ -63,13 +49,6 @@ public class PermissionServiceController {
 		return permission;
 	}
 
-	/**
-	 * Traer todos los usuarios que tienen un permiso determinado respecto a un
-	 * álbum específico.
-	 * 
-	 * @param albumId
-	 * @return
-	 */
 	@GetMapping(path = PATH, params = { "albumId" })
 	public List<User> getByAlbumId(@RequestParam(name = "albumId") Long albumId) {
 		List<Permission> list = permissionService.findByAlbumId(albumId);
